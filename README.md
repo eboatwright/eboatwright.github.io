@@ -1,2 +1,0 @@
-# eboatwright.github.io
- 
