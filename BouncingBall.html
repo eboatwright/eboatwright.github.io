@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Engine</title>
+    <style>
+      body {margin: 0; padding: 0; overflow: hidden}
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var c = canvas.getContext("2d")
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      var w = canvas.width;
+      var h = canvas.height;
+
+      var xPos = 0;
+      var yPos = 0;
+      var xSpeed = 5;
+      var ySpeed = 5;
+      var size = 10;
+
+      var bounces = 0;
+
+      function drawSquare(x, y, side, color) {
+        c.beginPath();
+        c.fillStyle = color;
+        c.fillRect(x, y, side, side);
+        c.closePath();
+      }
+
+      function init() {
+        xPos = w / 2 - size / 2;
+        yPos = h / 2 - size / 2;
+
+        draw();
+      }
+
+      function draw() {
+        c.clearRect(0, 0, w, h);
+
+        drawSquare(xPos, yPos, size, "Blue");
+
+        c.font = "24px Arial";
+        c.fillText("Bounces: " + bounces, w / 2, h / 2);
+
+        update();
+
+        requestAnimationFrame(draw);
+      }
+
+      function update() {
+        xPos += xSpeed;
+        yPos += ySpeed;
+
+        if(xPos > w - size / 2 || xPos < 0) {
+          xSpeed *= -1;
+          bounces++;
+        }
+        if(yPos > h - size / 2 || yPos < 0) {
+          ySpeed *= -1;
+          bounces++;
+        }
+      }
+
+      init();
+    </script>
+  </body>
+</html>
