@@ -20,7 +20,7 @@
 // COMPONENT CLASS
 class Component {
     constructor(id) {
-        // INITIALIZE ID
+        // INITIALIZE VARIABLES
         this.id = id;
     }
 }
@@ -33,11 +33,22 @@ class Entity {
         this.components = [];
         this.tags = [];
         this.destroyed = false;
+        this.parent = null;
     }
 
     destroy() {
         // A HELPER FUNCTION FOR DESTROYING ENTITIES
         this.destroyed = true;
+    }
+
+    // HELPER FUNCTION FOR SETTING PARENT
+    setParent(entity) {
+        this.parent = entity;
+    }
+
+    // HELPER FUNCTION FOR GETTING PARENT
+    getParent() {
+        return this.parent;
     }
 
     addTag(tag) {
@@ -196,10 +207,10 @@ class Scene {
     }
 
     update() {
-        // LOOP THROUGH ENTITY LIST BACKWARDS
-        for(var i = this.entities.length - 1; i >= 0; i--) {
-            // LOOP THROUGH SYSTEM LIST
-            for(var j = 0; j < this.systems.length; j++) {
+        // LOOP THROUGH SYSTEM LIST
+        for(var j = 0; j < this.systems.length; j++) {
+            // LOOP THROUGH ENTITY LIST BACKWARDS
+            for(var i = this.entities.length - 1; i >= 0; i--) {
                 // CHECK IF ENTITY IS DESTROYED
                 if(this.entities[i].destroyed) // IF SO, REMOVE FROM LIST
                     this.entities.splice(i, 1);
@@ -211,10 +222,10 @@ class Scene {
     }
 
     render(context) {
-        // LOOP THROUGH ENTITY LIST
-        for(var i = 0; i < this.entities.length; i++) {
-            // LOOP THROUGH SYSTEM LIST
-            for(var j = 0; j < this.systems.length; j++) {
+        // LOOP THROUGH SYSTEM LIST
+        for(var j = 0; j < this.systems.length; j++) {
+            // LOOP THROUGH ENTITY LIST
+            for(var i = 0; i < this.entities.length; i++) {
                 // IF NOT CHECK IF ENTITY MATCHES SYSTEM
                 if(this.systems[j].matches(this.entities[i])) // IF SO, RENDER ENTITY WITH SYSTEM AND CONTEXT
                     this.systems[j].render(this.entities[i], context);
