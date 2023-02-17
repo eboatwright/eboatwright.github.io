@@ -1,8 +1,8 @@
 var canvas = document.getElementById("canvas")
 var context = canvas.getContext("2d")
 
-const BOARD_IMG = loadImage("/res/board.png")
-const MOVES_IMG = loadImage("/res/moves.png")
+const BOARD_IMG = loadImage("res/board.png")
+const MOVES_IMG = loadImage("res/moves.png")
 
 var board = [
 	0, 0, 0,
@@ -196,5 +196,6 @@ window.onresize = function() {
 }
 
 window.addEventListener("load", event => {
+	console.log(BOARD_IMG)
     window.onresize()
 });
