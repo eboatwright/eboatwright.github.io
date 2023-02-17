@@ -196,6 +196,5 @@ window.onresize = function() {
 }
 
 window.addEventListener("load", event => {
-	console.log(BOARD_IMG)
     window.onresize()
 });
