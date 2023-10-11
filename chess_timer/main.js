@@ -86,5 +86,6 @@ function main() {
 }
 
 document.body.addEventListener("mouseup", onClick);
+document.body.addEventListener("touchend", onClick);
 
 window.requestAnimationFrame(main);
