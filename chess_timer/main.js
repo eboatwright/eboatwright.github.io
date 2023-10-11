@@ -37,7 +37,9 @@ function setTimer(timer, timeInMilliseconds, delayInMilliseconds, myTurn) {
 	timer.innerHTML = finalString;
 }
 
-function onClick() {
+function onClick(e) {
+	e.preventDefault();
+
 	if (started) {
 		if (whitesTurn) {
 			whiteTimeInMilliseconds += bonusTimeInMilliseconds;
@@ -85,7 +87,6 @@ function main() {
 	window.requestAnimationFrame(main);
 }
 
-document.body.addEventListener("mouseup", onClick);
 document.body.addEventListener("touchend", onClick);
 
 window.requestAnimationFrame(main);
