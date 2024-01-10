@@ -5445,20 +5445,23 @@
       this.whiteToMove = J.$eq$(split[1], "w");
     },
     movePiece$2(from, to) {
-      var t1, t2, _this = this;
-      if (from !== to) {
+      var t2, isWhite, t3, _this = this,
         t1 = _this.pieces;
-        if (!(from >= 0 && from < 36))
-          return A.ioore(t1, from);
-        t1 = t1[from] > 6 !== _this.whiteToMove;
-      } else
-        t1 = true;
-      if (t1)
-        return;
-      t1 = _this.pieces;
       if (!(from >= 0 && from < 36))
         return A.ioore(t1, from);
       t2 = t1[from];
+      isWhite = t2 > 6;
+      if (from !== to)
+        if (isWhite === _this.whiteToMove) {
+          if (!(to >= 0 && to < 36))
+            return A.ioore(t1, to);
+          t3 = isWhite === t1[to] > 6;
+        } else
+          t3 = true;
+      else
+        t3 = true;
+      if (t3)
+        return;
       if (!(to >= 0 && to < 36))
         return A.ioore(t1, to);
       t1[to] = t2;
