@@ -3380,7 +3380,7 @@
                 t3 = type$.nullable_void_Function_MouseEvent;
                 t4 = type$.MouseEvent;
                 A._EventStreamSubscription$(t1, "mousemove", t3._as(new A.main_closure()), false, t4);
-                A._EventStreamSubscription$(t1, "mousedown", t3._as(new A.main_closure0(_box_0)), false, t4);
+                A._EventStreamSubscription$(t1, "mousedown", t3._as(new A.main_closure0(_box_0, board)), false, t4);
                 A._EventStreamSubscription$(t1, "mouseup", t3._as(new A.main_closure1(_box_0, board)), false, t4);
                 t1 = board.pieces, t3 = type$.num;
               case 3:
@@ -3486,8 +3486,9 @@
     },
     main_closure: function main_closure() {
     },
-    main_closure0: function main_closure0(t0) {
+    main_closure0: function main_closure0(t0, t1) {
       this._box_0 = t0;
+      this.board = t1;
     },
     main_closure1: function main_closure1(t0, t1) {
       this._box_0 = t0;
@@ -3495,6 +3496,7 @@
     },
     Board: function Board(t0) {
       this.pieces = t0;
+      this.whiteToMove = true;
     },
     Board_closure: function Board_closure() {
     },
@@ -5052,33 +5054,34 @@
   };
   A.main_closure0.prototype = {
     call$1(e) {
-      type$.MouseEvent._as(e);
-      this._box_0.dragging = A.getMouseSquareIndex();
+      var square, t2,
+        t1 = type$.MouseEvent._as(e).button;
+      t1.toString;
+      if (t1 !== 0)
+        return;
+      square = A.getMouseSquareIndex();
+      t1 = this.board;
+      t2 = t1.pieces;
+      if (!(square >= 0 && square < 36))
+        return A.ioore(t2, square);
+      t2 = t2[square];
+      if (t2 === 0 || t2 > 6 !== t1.whiteToMove)
+        return;
+      this._box_0.dragging = square;
     },
     $signature: 1
   };
   A.main_closure1.prototype = {
     call$1(e) {
-      var t1, newSquare, t2, t3;
-      type$.MouseEvent._as(e);
-      t1 = this._box_0;
-      if (t1.dragging == null)
+      var t2,
+        t1 = type$.MouseEvent._as(e).button;
+      t1.toString;
+      if (t1 !== 0 || this._box_0.dragging == null)
         return;
-      newSquare = A.getMouseSquareIndex();
+      t1 = this._box_0;
       t2 = t1.dragging;
       t2.toString;
-      if (newSquare !== t2) {
-        t3 = this.board.pieces;
-        if (!(t2 >= 0 && t2 < 36))
-          return A.ioore(t3, t2);
-        t2 = t3[t2];
-        if (!(newSquare >= 0 && newSquare < 36))
-          return A.ioore(t3, newSquare);
-        t3[newSquare] = t2;
-        t2 = t1.dragging;
-        t2.toString;
-        B.JSArray_methods.$indexSet(t3, t2, 0);
-      }
+      this.board.movePiece$2(t2, A.getMouseSquareIndex());
       t1.dragging = null;
     },
     $signature: 1
@@ -5104,6 +5107,30 @@
           ++i;
         }
       }
+      if (1 >= split.length)
+        return A.ioore(split, 1);
+      this.whiteToMove = J.$eq$(split[1], "w");
+    },
+    movePiece$2(from, to) {
+      var t1, t2, _this = this;
+      if (from !== to) {
+        t1 = _this.pieces;
+        if (!(from >= 0 && from < 36))
+          return A.ioore(t1, from);
+        t1 = t1[from] > 6 !== _this.whiteToMove;
+      } else
+        t1 = true;
+      if (t1)
+        return;
+      t1 = _this.pieces;
+      if (!(from >= 0 && from < 36))
+        return A.ioore(t1, from);
+      t2 = t1[from];
+      if (!(to >= 0 && to < 36))
+        return A.ioore(t1, to);
+      t1[to] = t2;
+      B.JSArray_methods.$indexSet(t1, from, 0);
+      _this.whiteToMove = !_this.whiteToMove;
     }
   };
   A.Board_closure.prototype = {
