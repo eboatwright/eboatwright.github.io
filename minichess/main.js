@@ -3557,6 +3557,11 @@
         return 12;
       return 0;
     },
+    pieceIsWhite(piece) {
+      if (piece === 0)
+        return null;
+      return piece > 6;
+    },
     positionToSquareIndex(x, y) {
       return B.JSNumber_methods.floor$0(x / 100) + B.JSNumber_methods.floor$0(y / 100) * 6;
     },
@@ -5319,7 +5324,7 @@
       if (!(square >= 0 && square < 36))
         return A.ioore(t2, square);
       t2 = t2[square];
-      if (t2 === 0 || t2 > 6 !== t1.whiteToMove)
+      if (t2 === 0 || A.pieceIsWhite(t2) !== t1.whiteToMove)
         return;
       this._box_0.dragging = square;
     },
@@ -5395,7 +5400,7 @@
         if (!(square >= 0 && square < 36))
           return A.ioore(t3, square);
         t3 = t3[square];
-        if (t3 === 0 || t3 > 6 !== t2.whiteToMove)
+        if (t3 === 0 || A.pieceIsWhite(t3) !== t2.whiteToMove)
           return;
         $.mouseX = x;
         $.mouseY = y;
@@ -5445,17 +5450,19 @@
       this.whiteToMove = J.$eq$(split[1], "w");
     },
     movePiece$2(from, to) {
-      var t2, isWhite, t3, _this = this,
+      var t2, t3, t4, _this = this,
         t1 = _this.pieces;
       if (!(from >= 0 && from < 36))
         return A.ioore(t1, from);
       t2 = t1[from];
-      isWhite = t2 > 6;
+      t3 = A.pieceIsWhite(t2);
+      t3.toString;
       if (from !== to)
-        if (isWhite === _this.whiteToMove) {
+        if (t3 === _this.whiteToMove) {
           if (!(to >= 0 && to < 36))
             return A.ioore(t1, to);
-          t3 = isWhite === t1[to] > 6;
+          t4 = A.pieceIsWhite(t1[to]);
+          t3 = t3 === (t4 == null ? !t3 : t4);
         } else
           t3 = true;
       else
