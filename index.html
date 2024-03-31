@@ -1,58 +1,48 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="./_app/immutable/assets/0.10MiGopm.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.CU3kz53S.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.DF9uiQz8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.Chxswfdj.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.BxUgA5MH.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.BydcqO7J.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.-uI02efy.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/stores.CcCKmRYI.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.c98Xzxt_.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/HorizontalDivider.DBJ8e1NO.js"><title>Evan Boatwright</title><!-- HEAD_svelte-1xc0qlt_START --><!-- HEAD_svelte-1xc0qlt_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover" class="bg-gray-900 h-screen">
+		<div style="display: contents">  <div class="flex flex-col justify-between h-full"><div class="flex justify-between items-center px-10 py-2 bg-gray-800 shadow-xl" data-svelte-h="svelte-1yz2aej"><a href="/" title="Evan Boatwright" class="shrink-0"><div class="flex flex-row space-x-4 items-end"><p class="font-bookman text-1xl text-white">C: \</p> <p class="max-md:text-2xl before:content-['Evan_Boatwright'] max-md:before:content-['EB'] max-lg:before:content-['Evan_B'] font-bookman text-4xl text-white"></p></div></a> <div class="flex"><a href="/about"><div class="px-12 max-md:px-3 hover:bg-gray-700 group transition-colors duration-300"><p class="font-bookman text-lg max-md:text-xs max-lg:text-base text-white group-hover:underline" title="About">About</p></div></a> <a href="/projects"><div class="px-12 max-md:px-3 hover:bg-gray-700 group transition-colors duration-300"><p class="font-bookman text-lg max-md:text-xs max-lg:text-base text-white group-hover:underline" title="Projects">Projects</p></div></a> <a href="/contact"><div class="px-12 max-md:px-3 hover:bg-gray-700 group transition-colors duration-300"><p class="font-bookman text-lg max-md:text-xs max-lg:text-base text-white group-hover:underline" title="Contact">Contact</p></div></a></div> <a href="https://github.com/eboatwright" title="Github" target="_blank" class="shrink-0 hover:animate-pulse"><img src="/images/github.png" alt="Github" width="32" height="30" class="max-md:w-[24px]"></a></div> <div class="overflow-x-hidden">  <div class="flex flex-row justify-center items-center w-screen space-x-6 px-6"><div class="flex flex-col space-y-6"><div class="flex flex-row justify-end space-x-3" data-svelte-h="svelte-erfo6j"><p class="font-bookman text-3xl text-gray-200 text-right max-md:text-2xl">Hi there!</p> <p class="font-bookman text-3xl text-gray-200 text-right max-md:text-2xl animate-waving-hand">👋</p></div> <div class="w-full h-[2px] rounded-full border-b-2 border-gray-500 border-opacity-30"></div> <p class="font-bookman text-lg text-gray-200 text-right max-lg:text-xs max-md:text-[0.6rem]" data-svelte-h="svelte-l8rga4">Born in 2007, programming since 2016,<br>
+			most experienced with Game-dev, Web-dev and CLIs.</p></div> <div class="grow min-w-[150px] max-w-[275px] aspect-square shadow-2xl bg-gradient-to-br from-blue-400 to-purple-800 rounded-full"><img class="p-3 rounded-full" src="/images/me/1.png" alt="Me" width="275" height="275"></div></div></div> <div class="flex flex-col justify-between px-5 py-4 shadow-[rgba(0,0,0,0.25)_0px_0px_50px_-12px]" data-svelte-h="svelte-1jc0qwh"><p class="font-bookman text-gray-600 text-sm max-sm:text-xs">© 2024 Evan Boatwright</p> <p class="font-bookman text-gray-600 text-sm max-sm:text-xs">Powered by SvelteKit + TailwindCSS</p></div></div> 
+			
+			<script>
+				{
+					__sveltekit_4dc9ng = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+					const element = document.currentScript.parentElement;
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+					const data = [null,null];
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/">
-
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="eboatwright_webpage">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>eboatwright_webpage</title>
-  <link rel="manifest" href="manifest.json">
-
-  <script>
-    // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '3376150085';
-  </script>
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js" defer></script>
-</head>
-<body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function(engineInitializer) {
-        return engineInitializer.initializeEngine();
-      }).then(function(appRunner) {
-        return appRunner.runApp();
-      });
-    });
-  </script>
-</body>
+					Promise.all([
+						import("./_app/immutable/entry/start.CU3kz53S.js"),
+						import("./_app/immutable/entry/app.BxUgA5MH.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
 </html>
