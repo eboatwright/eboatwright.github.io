@@ -1,1 +1,0 @@
-https://copyfonts.com/fonts/urw-bookman-l-light-italic.html
